@@ -44,11 +44,11 @@ header img {
 }
 
 
-/* .content {
-  margin-top: 80px; /* Ajustar el margen superior para evitar solapamiento con la caja del título */
-  min-height: calc(100% - 180px); /* Altura mínima del contenido (altura total menos altura del título y el footer) */
-  position: relative;
-} */
+main div a{
+  text-decoration: none;
+  color: black;
+}
+
 
 .content div {
   border-radius: 5px;
@@ -58,8 +58,8 @@ header img {
 
 .box {
   background-color: var(--primary_color);
-  width: 100px;
-  height: 5px;
+  width: 200px;
+  height: 10px;
   margin: 10px;
   padding: 15px;
   text-align: center;
