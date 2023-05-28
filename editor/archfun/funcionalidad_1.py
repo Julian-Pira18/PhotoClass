@@ -4,9 +4,7 @@ import random
 from My_tree import *
 from list_dinamic import *
 from models import *
-
 # ---------------------------------
-
 
 def add_queue(list_photos, queue_photos=None):
     if queue_photos == None:
