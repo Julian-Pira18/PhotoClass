@@ -1,81 +1,34 @@
 {%load static%}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{%static 'css/index.css'%}" >
-    <title>PhotoClassify</title>
+  <title>PhotoClassify</title>
+  <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
 </head>
 <body>
-    <header class="header">
-        <section>
-            <figure>
-                <img class="logo" src="./imagenes/logo_verde.png" alt="">
-            </figure>
-            <p class="titulo">PhotoClassify</p>
-        </section>
-        <nav class="navegador">
-            <ul>
-              <li>| Inicio</li>
-              <li>| Acerca de</li>
-              <li>| Contacto</li>
-            </ul>
-          </nav>
+    <header >
+        <h1>PhotoClassify</h1>
+        <img src="logo-verde-removebg-preview.png" alt="Logo de la aplicación">      
     </header>
-
-    <main class="main">
-
-        <h1>Photos</h1>
-
-        {% for n in imagen %}
-
-                <img src= {{n}} >
-                <p> Informacion </p>
-
-        {% endfor %}
-
-        
-    </main>
-
-    <footer class="footer">
-        <div class="div__acercade">
-            <p class="texto_acercade">Para un fotógrafo, es tedioso e ineficaz no poder llevar un registro de 
-                los componentes que fueron usados en sus capturas. Esto nos lleva al principal objetivo de la 
-                aplicación. Lo que queremos lograr es poder organizar adecuadamente tu material fotográfico.
-            </p>
-        </div>
-        <nav class="correos">
-            <ul>
-                <li>abarrerat@unal.edu.co</li>
-                <li>cagarciach@unal.edu.co</li>
-                <li>cagarciach@unal.edu.co</li>
-                <li>jpira@unal.edu.co</li>
-            </nav>
-        <div class="informacion">
-            <figure>
-                <a href="https://unal.edu.co/" target="_blank" >
-                    <img class="logo_un" src="./imagenes/logo_unal_verde.png" alt="">
-                </a>
-                <div class="barra_separadora_un"></div>
-            </figure>
-            <figure>
-                <a  href="https://linktr.ee/grupo_3 " target="_blank">
-                    <img class="logo_ig" src="./imagenes/logo_ig_verde.png" alt="">
-                </a>
-            </figure>
-            <figure>
-                <a href="https://github.com/Julian-Pira18/PhotoClass" target="_blank">
-                    <img class="logo_github" src="./imagenes/logo_github_verde.png" alt="">
-                </a>
-            </div>
-            <div class="privacidad">
-                <p class="privacidad__texto">©2023 PRIVACY POLICY</p>
-            </div>
-        </section>
-    </footer>
+  
+  <main class="content">
+    <div class="box box1">
+      <a href="http://127.0.0.1:8000/photos/"><h3>Mis fotos</h3></a>
+    </div>
+    <div class="box box2">
+      <h3>Clasificar</h3>
+    </div>
+    <div class="box box3">
+      <h3>Buscar</h3>
+    </div>
+    <div class="box box4">
+      <h3>Papelera</h3>
+    </div>
+    <img src="reflector.png">
+  </main>
+  
+  <footer>
+    <button id="salir">Salir</button>
+  </footer>
 </body>
 </html>
-
-{% comment %} {% endblock %} {% endcomment %}

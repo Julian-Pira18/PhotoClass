@@ -21,6 +21,9 @@ dataList = dataStack.show()
 
 # Create your views here.
 def show_editor(request):
-    return render(request, 'index.html', {
+    return render(request, 'editor.html', {
         "imagen": dataList
     })
+
+def show_menu(request):
+    return render(request, 'index.html')
