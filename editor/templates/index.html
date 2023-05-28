@@ -24,7 +24,21 @@
             </ul>
           </nav>
     </header>
-    <main class="main"><h1>Holi</h1></main>
+
+    <main class="main">
+
+        <h1>Photos</h1>
+
+        {% for n in imagen %}
+
+                <img src= {{n}} >
+                <p> Informacion </p>
+
+        {% endfor %}
+
+        
+    </main>
+
     <footer class="footer">
         <div class="div__acercade">
             <p class="texto_acercade">Para un fotógrafo, es tedioso e ineficaz no poder llevar un registro de 

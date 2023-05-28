@@ -2,5 +2,5 @@ from . import views
 from django.urls import path
 
 urlpatterns = [
-    path('', views.show_editor)
+    path('photos/', views.show_editor, name="photos")
 ]
