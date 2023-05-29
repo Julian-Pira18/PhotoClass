@@ -1,64 +1,87 @@
-{% comment %} {% extends 'base.html' %} {% endcomment %}
 
+{% extends 'base.html' %}
 {%load static%}
 
 
 {% block content %}
-<!DOCTYPE html>
+<!DOCTYPE html> 
 <html>
 <head>
   <title>PhotoClassify</title>
   <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-    <header >
-        <h1>PhotoClassify</h1>
+
+    <!-- <header>
+        <h1 class="titulo">PhotoClassify</h1>
         <img src='{% static "imagenes/logo-verde-removebg-preview.png" %}' alt="Logo de la aplicación">      
-        <nav>
-          <ul>
-              <li>
-                  <a href="/">Home</a>
-              </li>
-    
-              {% if user.is_authenticated %}
-              <li>
-                  <a href="/logout/">Logout</a>
-              </li>
-              {% else %}
-              <li>
-                  <a href="/signup/">Signup</a>
-              </li>
-              <li>
-                  <a href="/signin/">Signin</a>
-              </li>
-              {% endif %}
-    
-          </ul>
-      </nav>
-    </header>
+        
+    </header> -->
   
-  <main class="content">
-
-    
-
+  <main class="content">  
+    <h1 class="titulo-main">PhotoClassify</h1>
     <div class="box box1">
-      <a href="http://127.0.0.1:8000/photos/"><h3>Mis fotos</h3></a>
-    </div>
-    <div class="box box2">
-      <a><h3>Clasificar</h3></a>
+      <button class="box1">
+        <a href="/photos/">Mis fotos</a>
+      </button> 
+    </div>  
+    <div class="box box2">  
+      <button class="box2">
+        <a href="/clasificar/">Clasificar</a>
+      </button> 
     </div>
     <div class="box box3">
-      <h3>Buscar</h3>
+      <button class="box3">
+        <a href="/buscar/">Buscar</a>
+      </button> 
     </div>
     <div class="box box4">
-      <h3>Papelera</h3>
+      <button class="box4">
+        <a href="/papelera/">Papelera</a>
+      </button> 
     </div>
     <img src='{%static "imagenes/reflector.png"%}''>
   </main>
   
-  <footer>
-    <button id="salir">Salir</button>
-  </footer>
+  <footer class="footer">
+    <div class="div__acercade">
+        <p class="texto_acercade">Para un fotógrafo, es tedioso e ineficaz no poder llevar un registro de 
+            los componentes que fueron usados en sus capturas. Esto nos lleva al principal objetivo de la 
+            aplicación. Lo que queremos lograr es poder organizar adecuadamente tu material fotográfico.
+        </p>
+    </div>
+    <nav class="correos">
+        <ul>
+            <li>abarrerat@unal.edu.co</li>
+            <li>cagarciach@unal.edu.co</li>
+            <li>cagarciach@unal.edu.co</li>
+            <li>jpira@unal.edu.co</li>
+        </nav>
+    <div class="informacion">
+        <figure>
+            <a href="https://unal.edu.co/" target="_blank" >
+                <img class="logo_un" src='{%static "imagenes/logo_unal_verde.png"%}' alt="">
+            
+            </a>
+            <div class="barra_separadora_un"></div>
+        </figure>
+        <figure>
+            <a  href="https://linktr.ee/grupo_3 " target="_blank">
+                <img class="logo_linkedin" src='{%static "imagenes/LinkedIn_logo_verde.png"%}' alt="">
+                
+            </a>
+        </figure>
+        <figure>
+            <a href="https://github.com/Julian-Pira18/PhotoClass" target="_blank">
+                <img class="logo_github" src='{%static "imagenes/logo_github_verde.png"%}' alt="">
+                
+            </a>
+        </div>
+        <div class="privacidad">
+            <p class="privacidad__texto">©2023 PRIVACY POLICY</p>
+        </div>
+    </section>
+</footer>
 </body>
 </html>
 

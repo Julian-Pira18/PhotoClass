@@ -77,3 +77,13 @@ def signin(request):
         else:
             login(request, user)
             return redirect('home')
+
+
+def clasificar(request):
+    return render(request, 'clasificar.html') 
+
+def buscar(request):
+    return render(request, 'buscar.html') 
+
+def papelera(request):
+    return render(request, 'papelera.html') 
