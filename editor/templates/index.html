@@ -1,22 +1,51 @@
+{% comment %} {% extends 'base.html' %} {% endcomment %}
+
 {%load static%}
+
+
+{% block content %}
 <!DOCTYPE html>
 <html>
 <head>
   <title>PhotoClassify</title>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
     <header >
         <h1>PhotoClassify</h1>
-        <img src='{%static "imagenes/logo-verde-removebg-preview.png"%}' alt="Logo de la aplicación">      
+        <img src='{% static "imagenes/logo-verde-removebg-preview.png" %}' alt="Logo de la aplicación">      
+        <nav>
+          <ul>
+              <li>
+                  <a href="/">Home</a>
+              </li>
+    
+              {% if user.is_authenticated %}
+              <li>
+                  <a href="/logout/">Logout</a>
+              </li>
+              {% else %}
+              <li>
+                  <a href="/signup/">Signup</a>
+              </li>
+              <li>
+                  <a href="/signin/">Signin</a>
+              </li>
+              {% endif %}
+    
+          </ul>
+      </nav>
     </header>
   
   <main class="content">
+
+    
+
     <div class="box box1">
       <a href="http://127.0.0.1:8000/photos/"><h3>Mis fotos</h3></a>
     </div>
     <div class="box box2">
-      <h3>Clasificar</h3>
+      <a><h3>Clasificar</h3></a>
     </div>
     <div class="box box3">
       <h3>Buscar</h3>
@@ -32,3 +61,5 @@
   </footer>
 </body>
 </html>
+
+{% endblock %}
