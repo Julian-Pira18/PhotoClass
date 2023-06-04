@@ -24,13 +24,15 @@ dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499
 dataList = dataStack.show()
 
 # Create your views here.
+
+def show_menu(request):
+    return render(request, 'index.html')
+
 def show_editor(request):
     return render(request, 'editor.html', {
         "imagen": dataList
     })
 
-def show_menu(request):
-    return render(request, 'index.html')
 
 def signup(request):
         if request.method == 'GET':
