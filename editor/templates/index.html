@@ -22,9 +22,15 @@
           </div>
         <div class="navegador">
             <ul>
-              <li>| Inicio</li>
-              <li>| Acerca de</li>
-              <li>| Contacto</li>
+              <a href="/">
+                <li>| Inicio</li>
+              </a>
+              <a href="/signin">
+                <li>| Sign in</li>
+              </a>
+              <a href="/signup">
+                <li>| Sign up</li>
+              </a>
             </ul>
         </div>
       </header>
@@ -39,16 +45,17 @@
           <img class="estudio_img" src="{% static '/imagenes/estudio_blanco.png' %}" alt="">
         </figure>
         <section class="botones">
-                  <button class="boton_mis_fotos">
+                  <button onclick="location.href='/photos'"  class="boton_mis_fotos">
                       <span class="mis_fotos">Mis fotos</span>
                   </button>
-                  <button class="boton_clasificar">
+                  
+                  <button onclick="location.href='/clasificar'" class="boton_clasificar">
                       <span class="clasificar">Clasificar</span>
                   </button>
-                  <button class="boton_buscar">
+                  <button onclick="location.href='/buscar'" class="boton_buscar">
                       <span class="buscar">Buscar</span>
                   </button>
-                  <button class="boton_papelera">
+                  <button onclick="location.href='/papelera'" class="boton_papelera">
                       <span class="papelera">Papelera</span>
                   </button>
       </section>

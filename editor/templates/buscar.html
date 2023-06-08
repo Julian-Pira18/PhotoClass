@@ -1,0 +1,111 @@
+
+{%load static%}
+
+
+{% block content %}
+
+<!DOCTYPE html>
+<html>
+<head>
+  
+    <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <link rel="stylesheet" href="{% static '/index.css' %}">
+      <title>PhotoClassify|Clasificar</title>
+    
+  <style>
+    .search-bar {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    #image-gallery {
+      /* Estilos para la galería de imágenes */
+    }
+  </style>
+</head>
+<body>
+  <header class="header">
+    <div>
+        <figure>
+          <a href="/">
+            <img class="logo" src="{% static '/imagenes/logo_verde.png' %}" alt="">
+          </a>
+        </figure>
+        <a href="/">
+          <p class="titulo">PhotoClassify</p>
+        </a>  
+      </div>
+    <div class="navegador">
+        <ul>
+          <a href="/">
+            <li>| Inicio</li>
+          </a>
+          <a href="/signin">
+            <li>| Sign in</li>
+          </a>
+          <a href="/signup">
+            <li>| Sign up</li>
+          </a>
+        </ul>
+    </div>
+  </header>
+    <h2>Buscar</h2>
+  <div class="search-bar">
+    <input type="text" id="search-input" placeholder="Buscar imágenes...">
+    <select id="illumination-filter">
+      <option value="">Iluminación</option>
+      <option value="daylight">Luz natural</option>
+      <option value="artificial">Luz artificial</option>
+    </select>
+    <select id="photo-type-filter">
+      <option value="">Tipo de foto</option>
+      <option value="landscape">Paisaje</option>
+      <option value="portrait">Retrato</option>
+      <option value="still-life">Bodegón</option>
+    </select>
+    <select id="camera-settings-filter">
+      <option value="">Configuración de cámara</option>
+      <option value="auto">Automático</option>
+      <option value="manual">Manual</option>
+    </select>
+    <button onclick="applyFilters()">Buscar</button>
+  </div>
+  
+  <div id="image-gallery">
+    <!-- Aquí se mostrarían las imágenes filtradas -->
+    <h1>Photos</h1>
+
+        {% for n in imagen %}
+
+                <img src= {{n}} >
+                <p> Informacion </p>
+
+        {% endfor %}
+  </div>
+  
+  <script>
+    function applyFilters() {
+      var searchInput = document.getElementById("search-input").value;
+      var illuminationFilter = document.getElementById("illumination-filter").value;
+      var photoTypeFilter = document.getElementById("photo-type-filter").value;
+      var cameraSettingsFilter = document.getElementById("camera-settings-filter").value;
+      
+      // Aquí puedes hacer una llamada a una API o procesar los datos localmente
+      // para obtener las imágenes filtradas según los valores seleccionados
+      
+      // Por simplicidad, aquí solo mostraremos un mensaje en la consola
+      console.log("Búsqueda:", searchInput);
+      console.log("Filtro de iluminación:", illuminationFilter);
+      console.log("Filtro de tipo de foto:", photoTypeFilter);
+      console.log("Filtro de configuración de cámara:", cameraSettingsFilter);
+    }
+  </script>
+</body>
+</html>
+
+
+
+{% endblock %}

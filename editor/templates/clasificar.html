@@ -1,0 +1,160 @@
+{%load static%}
+
+
+{% block content %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static '/index.css' %}">
+    <title>PhotoClassify|Clasificar</title>
+  
+  <style>
+    
+
+    .form-group {
+      margin-bottom: 15px;
+    }
+
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .form-group input[type="file"],
+    .form-group input[type="text"],
+    .form-group select {
+      display: block;
+    }
+
+    .form-group input[type="submit"] {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      cursor: pointer;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-gap: 20px;
+      margin-top: 30px;
+    }
+
+    .gallery-item {
+      position: relative;
+      width: 100%;
+      height: 0;
+      padding-bottom: 100%;
+      overflow: hidden;
+    }
+
+    .gallery-item img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  </style>
+</head>
+
+  <header class="header">
+    <div>
+        <figure>
+          <a href="/">
+            <img class="logo" src="{% static '/imagenes/logo_verde.png' %}" alt="">
+          </a>
+        </figure>
+        <a href="/">
+          <p class="titulo">PhotoClassify</p>
+        </a>  
+      </div>
+    <div class="navegador">
+        <ul>
+          <a href="/">
+            <li>| Inicio</li>
+          </a>
+          <a href="/signin">
+            <li>| Sign in</li>
+          </a>
+          <a href="/signup">
+            <li>| Sign up</li>
+          </a>
+        </ul>
+    </div>
+  </header>
+<body>
+  <div class="container">
+    <h2>Clasificar</h2>
+    <form id="upload-form" enctype="multipart/form-data">
+      <div class="form-group">
+        <label for="imagen">Selecciona una imagen:</label>
+        <input type="file" id="imagen" name="imagen" accept="image/*" required>
+      </div>
+      <div class="form-group">
+        <label for="iluminacion">Iluminación:</label>
+        <input type="text" id="iluminacion" name="iluminacion" required>
+      </div>
+      <div class="form-group">
+        <label for="tipo_foto">Tipo de foto:</label>
+        <select id="tipo_foto" name="tipo_foto" required>
+          <option value="Retrato">Retrato</option>
+          <option value="Paisaje">Paisaje</option>
+          <option value="Macro">Macro</option>
+          <option value="Otro">Otro</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="configuracion_camara">Configuración de cámara:</label>
+        <input type="text" id="configuracion_camara" name="configuracion_camara" required>
+      </div>
+      <div class="form-group">
+        <input type="submit" value="Subir imagen">
+      </div>
+    </form>
+
+    <div class="gallery" id="gallery"></div>
+  </div>
+
+  <script>
+    document.getElementById('upload-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+
+      var formData = new FormData(this);
+
+      // Realizar la petición AJAX para subir la imagen y los datos
+      var xhr = new XMLHttpRequest();
+      xhr.open('POST', 'guardar_imagen.php', true);
+      xhr.onload = function() {
+        if (xhr.status === 200) {
+          // Imagen subida exitosamente, agregarla a la galería
+          var response = JSON.parse(xhr.responseText);
+          addImageToGallery(response.url);
+        } else {
+          alert('Error al subir la imagen. Inténtalo de nuevo.');
+        }
+      };
+      xhr.send(formData);
+    });
+
+    function addImageToGallery(url) {
+      var gallery = document.getElementById('gallery');
+      var galleryItem = document.createElement('div');
+      galleryItem.className = 'gallery-item';
+
+      var image = document.createElement('img');
+      image.src = url;
+
+      galleryItem.appendChild(image);
+      gallery.appendChild(galleryItem);
+    }
+  </script>
+</body>
+</html>
+
+{% endblock %}
