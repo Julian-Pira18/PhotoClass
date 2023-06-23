@@ -3,6 +3,8 @@ from django.urls import path
 
 urlpatterns = [
     path('photos/', views.show_editor, name="photos"),
+    path('photos/<int:indice>', views.show_photo, name="photo"),    
+
     path('signup/', views.signup, name="signup"),
     path('signin/', views.signin, name="signin"),   
     path('logout/', views.signout, name="signout"),

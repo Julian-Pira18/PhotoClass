@@ -3,82 +3,45 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/index.css' %}" >
-    <title>PhotoClassify</title>
+    <link rel="stylesheet" href="{% static '/style_mis_fotos.css' %}" >
+    <title>Mis fotos</title>
 </head>
 <body>
     <header class="header">
-        <section>
+        <div class="contenedor_logo">
             <figure>
-                <img class="logo" src="{% static '/imagenes/logo_verde.png' %}" alt="">
+                <img class="logo" src="./imagenes/logo_verde.png" alt="">
             </figure>
-            <a href="/"><p class="titulo">PhotoClassify</p></a>
-        </section>
-        <nav class="navegador">
+            <p class="titulo">PhotoClassify</p>
+        </div>
+        <div class="navegador">
             <ul>
-              <li>| Inicio</li>
-              <li>| Acerca de</li>
-              <li>| Contacto</li>
+                <a href=""><li>| Inicio</li></a> 
+                <a href=""><li>| Acerca de</li></a>
+                <a href=""><li>| Contacto</li></a>
             </ul>
-          </nav>
+        </div>
     </header>
 
+    <h1 class="title_main">Mis Fotos</h1>
+
     <main class="main">
-
-        <h1>Photos</h1>
-
-        {% for n in imagen %}
-
-                <img src= {{n}} >
-                <p> Informacion </p>
-
-        {% endfor %}
-
-        
-    </main>
-
-    <footer class="footer">
-        <div class="div__acercade">
-            <p class="texto_acercade">Para un fotógrafo, es tedioso e ineficaz no poder llevar un registro de 
-                los componentes que fueron usados en sus capturas. Esto nos lleva al principal objetivo de la 
-                aplicación. Lo que queremos lograr es poder organizar adecuadamente tu material fotográfico.
-            </p>
+        <div class="contenedor_menu">
+                <p class="texto_menu">PhotoClassify</p>
+                <button class="boton_volver">
+                    <span class="volver">Volver</span>
+                </button>
         </div>
-        <nav class="correos">
-            <ul>
-                <li>abarrerat@unal.edu.co</li>
-                <li>cagarciach@unal.edu.co</li>
-                <li>cagarciach@unal.edu.co</li>
-                <li>jpira@unal.edu.co</li>
-            </nav>
-        <div class="informacion">
-            <figure>
-                <a href="https://unal.edu.co/" target="_blank" >
-                    <img class="logo_un" src='{%static "imagenes/logo_unal_verde.png"%}' alt="">
-                
-                </a>
-                <div class="barra_separadora_un"></div>
-            </figure>
-            <figure>
-                <a  href="https://linktr.ee/grupo_3 " target="_blank">
-                    <img class="logo_ig" src='{%static "imagenes/LinkedIn_logo_verde.png"%}' alt="">
-                    
-                </a>
-            </figure>
-            <figure>
-                <a href="https://github.com/Julian-Pira18/PhotoClass" target="_blank">
-                    <img class="logo_github" src='{%static "imagenes/logo_github_verde.png"%}' alt="">
-                    
-                </a>
-            </div>
-            <div class="privacidad">
-                <p class="privacidad__texto">©2023 PRIVACY POLICY</p>
-            </div>
-        </section>
-    </footer>
+        <section class="mis_fotos">
+            {% for n in imagen %}
+                <a href="/photos/{{n.indice}}">
+                    <img src="{% static 'imagenes/'%}{{n.data}}">
+                    <p>{{n.scheme}}</p>
+                </a>               
+            {% endfor %}
+
+        </section>  
+    </main>
 </body>
 </html>
-
-{% comment %} {% endblock %} {% endcomment %}

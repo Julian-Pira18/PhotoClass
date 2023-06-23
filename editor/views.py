@@ -5,32 +5,29 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
+from .AVL import avl_photos, avl_search
 
 
 dataStack = Stack()
-dataStack.push("https://i.pinimg.com/originals/6d/ed/f7/6dedf72a2acdca56102ce23779df656e.jpg")
-dataStack.push("https://i.pinimg.com/736x/1a/46/11/1a4611b27348f6eecaab0620710d1a83.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
-dataStack.push("https://i.pinimg.com/originals/14/55/00/1455005e7c2949c42f35c499631ffcec.jpg")
 
-dataList = dataStack.show()
+#lista de fotos
+avl_list = avl_photos()
 
 # Create your views here.
-
 def show_menu(request):
     return render(request, 'index.html')
 
 def show_editor(request):
     return render(request, 'editor.html', {
-        "imagen": dataList
+        "imagen": avl_list
+    })
+
+def show_photo(request, indice):    
+    photo_list = avl_search(indice)  
+    print(f"Photo: {photo_list.label.data}")
+    photo = photo_list.label
+    return render(request, 'clasificar.html',{
+        "photo": photo
     })
 
 

@@ -1,6 +1,7 @@
 class Photo():
-    def __init__(self, data, scheme="Rembrandt", config="Iso:200 Tiempo_obturación:5/2000 Diafragma_F/5.6", type_photo="Retrato") -> None:
+    def __init__(self, data, indice = 0, scheme="Rembrandt", config="Iso:200 Tiempo_obturación:5/2000 Diafragma_F/5.6", type_photo="Retrato") -> None:
         self.data = data
+        self.indice = indice
         self.scheme = scheme
         self.config = config
         self.type = type_photo
