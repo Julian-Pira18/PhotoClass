@@ -28,7 +28,7 @@
     </header>
     <main class="main">
       <div class="contenedor_menu">
-        
+            <a href="http://127.0.0.1:8000/photos/{{photo.indice}}"></a>
       </div>
       <section class="mis_fotos">
               <div>
@@ -42,35 +42,41 @@
         <label for="scheme">Esquema:</label>
         <input list="options-schema" id="shcema" name="opt_schema" placeholder="Selecciona un esquema">
         
-        <datalist id="options-schema">
-          <option value="1">
-          <option value="2">
-          <option value="3">
-          <option value="4">
-          <option value="5">
+        <datalist id="options-schema">              
+          <option value="Rembrandt (Luz a 45º)">
+          <option value="Luz Lateral (Luz a 90º)">
+          <option value="Rembrandt Elevado">
+          <option value="Luz Lateral + Luz Frontal">
+          <option value="Rembrandt + Contraluz">
+          <option value="Luces a 45º y a -45º">
+          <option value="Rembrandt + Luz Frontal">
+          <option value="Rembrandt + Luz lateral">
         </datalist>
 
         <label for="config">Configuración:</label>
         <input list="options-config" id="config" name="opt_config" placeholder="Configuracion">
         
         <datalist id="options-config">
-          <option value="1">
-          <option value="2">
-          <option value="3">
-          <option value="4">
-          <option value="5">
+          <option value="50">
+          <option value="100">
+          <option value="200">
+          <option value="400">
+          <option value="800">
+          <option value="1600">
+          <option value="3200">
+          <option value="6400">
         </datalist>
 
         <label for="type">Tipo:</label>
         <input list="options-type" id="type" name="opt_config" placeholder="Tipo">
         
         <datalist id="options-type">
-          <option value="1">
-          <option value="2">
-          <option value="3">
-          <option value="4">
-          <option value="5">
-        </datalist>
+          <option value="Plano Entero">
+          <option value="Plano Medio">
+          <option value="Plano Medio Corto">
+          <option value="Primer Plano">
+          <option value="Plano detalle">
+          </datalist>
         
         <input type="submit" value="Enviar">
       </form>

@@ -209,22 +209,13 @@ def avl_photos():
         photo_number +=1
         photo = Photo("fotos_book/" + i, photo_number)
         t.insert(photo) 
-
+    return t
+    
+def Avl_to_list(object_avl):
     lista = [] 
-    lista = t.preShow(t.root, lista)
+    lista = object_avl.preShow(object_avl.root, lista)
     return lista
 
-def avl_search(indice):
-    t = AVL()
-    #leer las imagenes desde la carpeta
-    imagenes_path = "C:/Users/Julian/Documents/Estructuras_proyect/PhotoClass/editor/templates/static/imagenes/fotos_book"
-    files_names = os.listdir(imagenes_path)
-    photo_number = 0
-
-    for i in files_names:
-        photo_number +=1
-        photo = Photo("fotos_book/" + i, photo_number)
-        t.insert(photo) 
-    
-    search_photo = t.search(indice)
+def avl_search(indice, object_avl):
+    search_photo = object_avl.search(indice)
     return search_photo

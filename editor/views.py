@@ -5,26 +5,27 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, logout, authenticate
 from django.contrib.auth.models import User
 from django.db import IntegrityError
-from .AVL import avl_photos, avl_search
+from .AVL import avl_photos, avl_search, Avl_to_list
 
 
 dataStack = Stack()
 
-#lista de fotos
-avl_list = avl_photos()
+object_avl = avl_photos()
 
 # Create your views here.
 def show_menu(request):
     return render(request, 'index.html')
 
 def show_editor(request):
+    avl_list = Avl_to_list(object_avl)
     return render(request, 'editor.html', {
         "imagen": avl_list
     })
 
 def show_photo(request, indice):    
-    photo_list = avl_search(indice)  
-    print(f"Photo: {photo_list.label.data}")
+    # photo_list = avl_search(indice)  
+    
+    photo_list = avl_search(indice, object_avl)
     photo = photo_list.label
     return render(request, 'clasificar.html',{
         "photo": photo

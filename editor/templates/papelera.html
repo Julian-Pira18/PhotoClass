@@ -1,121 +1,51 @@
-
 {%load static%}
-
-{% block content %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/index.css' %}">
-    <title>PhotoClassify|Papelera</title>
-  <style>
-    .trash {
-      display: flex;
-      flex-wrap: wrap;
-    }
-    
-    .trash img {
-      width: 150px;
-      height: 150px;
-      margin: 10px;
-      border: 1px solid #ccc;
-      object-fit: cover;
-    }
-  </style>
+    <link rel="stylesheet" href="{% static '/eliminados.css' %}">
+    <title>Eliminar</title>
 </head>
 <body>
-  <header class="header">
-    <div>
-        <figure>
-          <a href="/">
-            <img class="logo" src="{% static '/imagenes/logo_verde.png' %}" alt="">
-          </a>
-        </figure>
-        <a href="/">
-          <p class="titulo">PhotoClassify</p>
-        </a>  
-      </div>
-    <div class="navegador">
-        <ul>
-          <a href="/">
-            <li>| Inicio</li>
-          </a>
-          <a href="/signin">
-            <li>| Sign in</li>
-          </a>
-          <a href="/signup">
-            <li>| Sign up</li>
-          </a>
-        </ul>
-    </div>
-  </header>
-    <h2>Papelera</h2>
-  <div class="trash" id="trash-container">
-    <!-- Aquí se mostrarán las fotos eliminadas -->
-  </div>
-  
-  <script>
-    var deletedPhotos = []; // Array para almacenar las fotos eliminadas
-    
-    function deletePhoto(photoId) {
-      var photoElement = document.getElementById(photoId);
-      if (photoElement) {
-        photoElement.remove(); // Eliminar el elemento de la página
-        deletedPhotos.push(photoId); // Agregar el ID de la foto al array de eliminadas
-      }
-    }
-    
-    function restorePhoto(photoId) {
-      var index = deletedPhotos.indexOf(photoId);
-      if (index > -1) {
-        deletedPhotos.splice(index, 1); // Eliminar el ID de la foto del array de eliminadas
-        // Aquí puedes realizar alguna acción para restaurar la foto, como volver a mostrarla en la galería principal
-      }
-    }
-    
-    // Ejemplo de uso con más fotos
-    var photos = [
-      { id: "photo1", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo2", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo3", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo4", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo5", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo6", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo7", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo8", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo9", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo10", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo11", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo12", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo13", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo14", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo15", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo16", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo17", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo18", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo19", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" },
-      { id: "photo20", url: "https://i.pinimg.com/280x280_RS/f6/e9/3a/f6e93a06b500b2d87ffd32e1f56f7c6f.jpg" }
-    ];
-    
-    for (var i = 0; i < photos.length; i++) {
-      var photo = photos[i];
-      deletedPhotos.push(photo.id);
-      
-      // Agregar las fotos eliminadas al contenedor de la papelera
-      var trashContainer = document.getElementById("trash-container");
-      var img = document.createElement("img");
-      img.src = photo.url;
-      img.id = photo.id;
-      img.onclick = function() {
-        restorePhoto(this.id);
-      };
-      trashContainer.appendChild(img);
-    }
-  </script>
+    <header class="header">
+        <div class="contenedor_logo">
+            <figure>
+                <img class="logo" src="./imagenes/logo_verde.png" alt="">
+            </figure>
+            <p class="titulo">PhotoClassify</p>
+        </div>
+        <div class="navegador">
+            <ul>
+                <a href=""><li>| Inicio</li></a>
+                <a href=""><li>| Acerca de</li></a>
+                <a href=""><li>| Contacto</li></a>
+            </ul>
+        </div>
+        <main class="main">
+            <div class="contenedor_menu">
+                    <p class="texto_menu">PhotoClassify</p>
+                    <button class="boton_vaciar">
+                        <span class="vaciar">Vaciar</span>
+                    </button>
+                    <button class="boton_volver">
+                        <span class="volver">Volver</span>
+                    </button>
+            </div>
+            <div class="titulo_main">
+                <p>Eliminar</p>
+                <figure>
+                    <img class="logo_main" src="./imagenes/tripode_blanco.png" alt="">
+                </figure>
+            </div>
+            <section class="mis_fotos">
+                <a href="">
+                    <img src="" alt="">
+                    <p></p>
+                </a>
+            
+            </section> 
+        </main>
+    </header>
 </body>
 </html>
-
-
-{% endblock %}
