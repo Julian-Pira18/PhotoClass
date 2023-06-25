@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/clasificar1.css' %}">
+    <link rel="stylesheet" href="{% static '/clasificar2.css' %}">
     <!-- <link rel="stylesheet" href="clasificar.css"> -->
     <title>PhotoClassify|Clasificar</title>  
 </head>
@@ -14,7 +14,7 @@
     <header class="header">
       <div class="contenedor_logo">
           <figure>
-              <img class="logo" src="./imagenes/logo_verde.png"          alt="">
+              <img class="logo" src="./imagenes/logo_blanco.png"          alt="">
           </figure>
           <p class="titulo">PhotoClassify</p>
       </div>
@@ -28,15 +28,24 @@
     </header>
     <main class="main">
       <div class="contenedor_menu">
-            <a href="http://127.0.0.1:8000/photos/{{photo.indice}}"> Eliminar </a>
+        <p class="texto_menu">PhotoClassify</p>
+        <div class="botones">
+          <a class="boton_volver">
+              <span class="volver">Volver</span>
+          </a>
+          <a class="boton_eliminar"> 
+            <span class="eliminar">Eliminar</span>
+          </a>
+        </div>
       </div>
       <section class="mis_fotos">
               <div>
                 <img src="{% static 'imagenes/'%}{{photo.data}} " alt="">
               </div>
     </section>
+    
     <section class="menu_update">
-      <h1>UPDATE</h1>
+      <p class="titulo_update">Clasificar</p>
       
       <form  method="POST">
         {% csrf_token %}
@@ -64,7 +73,7 @@
           <option value="Plano Medio Corto">
           <option value="Primer Plano">
           <option value="Plano detalle">
-          </datalist>
+        </datalist>
 
         <label for="config">Configuración</label>
 
@@ -82,8 +91,8 @@
           <option value="6400">
         </datalist>
 
-        <label for="tmp-obturacion">Tiempo-Obturación:</label>
-        <input list="options-tmp" id="tmp-obturacion" name="opt_tmp" placeholder="Timepo-Obturacion">
+        <label for="tmp-obturación">Tiempo-Obturación:</label>
+        <input list="options-tmp" id="tmp-onbtiracion" name="opt_tmp" placeholder="Timepo-Obturacion">
         
         <datalist id="options-tmp">
           <option value="8">
@@ -123,12 +132,12 @@
           <option value="">
           <option value="">
           <option value="">    
-        </datalist>     
-        
-        <label for="indice">indice:</label>
-        <input name="indice" value="{{photo.indice}}" readonly>
+        </datalist>      
 
-      <input type="submit" value="Enviar">
+      <label for="indice">indice:</label>
+      <input name="indice" value="{{photo.indice}}" readonly>
+
+      <input class="enviar" type="submit" value="Enviar">
     </form>
     </section>
 </body>
