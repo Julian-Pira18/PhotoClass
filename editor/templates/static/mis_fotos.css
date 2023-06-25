@@ -91,15 +91,18 @@ body {
     padding-left: 4rem;
     padding-right: 2rem;
 } 
+
+
+
 /* main */
 .main {
     position: relative;
     display: flex;
-    width: 100%;
+    width: 90%;
     min-height: 80.5vh;
     overflow-y: auto;
     margin-top:2rem;
-    justify-content: space-evenly;
+    justify-content: flex-start;
 }
 
 .title_main{
@@ -116,72 +119,117 @@ body {
     display: flex;
     position: relative;
     border: 0.2rem solid white;
-    width: 20vw;
+    width: 20rem;
     min-width: 12rem;
-    height: 80vh;
-    margin: 3rem;
+    height: 45rem;
+    margin: 2rem;
     margin-top: 0;
     flex-direction: column;
     justify-content: center;
-    flex-direction: column;
 }
+
+.texto_menu {
+    position: relative;
+    /* top: 10rem; */
+    color: white;
+    font-family: var(--type_font);
+    font-size: 3rem;
+    transform: rotate(-90deg);
+}
+
+.boton_volver{
+    position: absolute;
+    text-align: center;
+    border: 0.2rem solid white;
+    background-image: linear-gradient(
+        150deg,
+        var(--primary_color),
+        var(--secundary_color),
+        var(--tertiary_color) 
+    );
+    border-radius: 0.8rem;
+    color: white;
+    display: flex;
+    font-size: 1.5rem;
+    padding: 0.4rem;
+    cursor: pointer;
+    transition: .3s;
+    font-family: var(--type_font);
+    bottom: 4rem;
+    left: 4rem;
+}
+
+
+.volver {
+    background-color: #111;
+    border-radius: 0.6rem;
+    transition: .3s;
+    padding: 1.5rem 3rem;
+}
+
+
+.boton_volver:hover .volver
+{
+    background-color: transparent;
+}
+
+.boton_volver:active
+{
+    transform: scale(0.9);
+} 
 
 .mis_fotos {
     position: relative;
     display: flex;
     flex-wrap: wrap;
-    width: 50rem;
+    width: 85rem;
     min-width: 22rem;
     border: 0.2rem solid white;
     min-height: 10rem;
     margin: 0 auto;
-    align-items: center;
+    align-content: flex-start;
 }
 
-.mis_fotos div{
-    position: relative;
+.mis_fotos a{
     display: flex;
-    width: 30vw;
-    height: 70vh;
-    margin: 0 auto;
-    background-color: aliceblue;
-    border-radius: 1rem;
-    align-items: center;
+    flex-flow: column;
+    width: 17rem;
+    height: 16rem;
+    background-color: white;
+    margin: 2rem;
+    transition: transform 0.3s ease-in-out;
+    box-shadow: 1.3rem 1.3rem 1px  rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-decoration: none;
+    color: inherit;
 }
+
+.mis_fotos a:visited{
+    color: inherit;
+}
+
+.mis_fotos a:hover{
+    transform: translateY(-5px);
+    transform: scale(1.1);
+    box-shadow: 1.4rem 1.4rem 1px rgba(0, 0, 0, 0.2);
+    text-decoration: none;
+}
+
 .mis_fotos img{
-    width: 28vw;
-    height: 68vh;
-    margin: 0 auto;
+    text-align: center;
+    width: 17rem;
+    height: 12rem;
+    background-color: palegreen;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
 }
 
-.menu_update {
-    display: flex;
-    position: relative;
-    border: 0.2rem solid white;
-    width: 20vw;
-    min-width: 12rem;
-    height: 80vh;
-    margin: 4rem;
-    margin-top: 0;
-    flex-direction: column;
-    justify-content: space-evenly;
-}
-
-.menu_update h1{
-    font-size: 3.5rem;
+.mis_fotos p{
     text-align: center;
 }
-.menu_update form{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
 
-.menu_update form label{
-    font-size: 2rem;    
-}
-
-.menu_update form input{
-    margin-bottom:2rem;
-
-}
+@media (max-width: 800px) {
+    .header {
+        height: 10rem;
+    }
+}    

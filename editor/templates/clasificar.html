@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/clasificar.css' %}">
+    <link rel="stylesheet" href="{% static '/clasificar1.css' %}">
     <!-- <link rel="stylesheet" href="clasificar.css"> -->
     <title>PhotoClassify|Clasificar</title>  
 </head>
@@ -28,7 +28,7 @@
     </header>
     <main class="main">
       <div class="contenedor_menu">
-            <a href="http://127.0.0.1:8000/photos/{{photo.indice}}"></a>
+            <a href="http://127.0.0.1:8000/photos/{{photo.indice}}"> Eliminar </a>
       </div>
       <section class="mis_fotos">
               <div>
@@ -39,6 +39,8 @@
       <h1>UPDATE</h1>
       
       <form  method="POST">
+        {% csrf_token %}
+
         <label for="scheme">Esquema:</label>
         <input list="options-schema" id="shcema" name="opt_schema" placeholder="Selecciona un esquema">
         
@@ -53,10 +55,23 @@
           <option value="Rembrandt + Luz lateral">
         </datalist>
 
-        <label for="config">Configuración:</label>
-        <input list="options-config" id="config" name="opt_config" placeholder="Configuracion">
+        <label for="type">Tipo:</label>
+        <input list="options-type" id="type" name="opt_type" placeholder="Tipo">
         
-        <datalist id="options-config">
+        <datalist id="options-type">
+          <option value="Plano Entero">
+          <option value="Plano Medio">
+          <option value="Plano Medio Corto">
+          <option value="Primer Plano">
+          <option value="Plano detalle">
+          </datalist>
+
+        <label for="config">Configuración</label>
+
+        <label for="Iso">Iso:</label>
+        <input list="options-iso" id="Iso" name="opt_iso" placeholder="Iso">
+        
+        <datalist id="options-iso">
           <option value="50">
           <option value="100">
           <option value="200">
@@ -67,19 +82,54 @@
           <option value="6400">
         </datalist>
 
-        <label for="type">Tipo:</label>
-        <input list="options-type" id="type" name="opt_config" placeholder="Tipo">
+        <label for="tmp-obturacion">Tiempo-Obturación:</label>
+        <input list="options-tmp" id="tmp-obturacion" name="opt_tmp" placeholder="Timepo-Obturacion">
         
-        <datalist id="options-type">
-          <option value="Plano Entero">
-          <option value="Plano Medio">
-          <option value="Plano Medio Corto">
-          <option value="Primer Plano">
-          <option value="Plano detalle">
-          </datalist>
+        <datalist id="options-tmp">
+          <option value="8">
+          <option value="4">
+          <option value="2">
+          <option value="1">
+          <option value="1/2">
+          <option value="1/4">
+          <option value="1/8">
+          <option value="1/15">
+          <option value="1/30">
+          <option value="1/60">
+          <option value="1/125">
+          <option value="1/250">
+          <option value="1/500">
+          <option value="1/1000">
+          <option value="1/2000">    
+        </datalist>      
+
+
+        <label for="diafragma">Diafragma:</label>
+        <input list="options-dgr" id="diafragma" name="opt_diafragma" placeholder="Diafragma">
         
-        <input type="submit" value="Enviar">
-      </form>
+        <datalist id="options-dgr">
+          <option value="f/1.4">
+          <option value="f/2">
+          <option value="f/4">
+          <option value="f/8">
+          <option value="f/11">
+          <option value="f/16">
+          <option value="f/22">
+          <option value="f/32">
+          <option value="">
+          <option value="">
+          <option value="">
+          <option value="">
+          <option value="">
+          <option value="">
+          <option value="">    
+        </datalist>     
+        
+        <label for="indice">indice:</label>
+        <input name="indice" value="{{photo.indice}}" readonly>
+
+      <input type="submit" value="Enviar">
+    </form>
     </section>
 </body>
 </html>

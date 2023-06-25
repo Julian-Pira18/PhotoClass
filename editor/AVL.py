@@ -1,6 +1,7 @@
 from __future__ import print_function
 from .model_Photo import Photo
 import os
+from .Hash_table import hash_search
 
 
 class Node:
@@ -196,18 +197,35 @@ class AVL:
                 curr_node = curr_node.right
 
 
-def avl_photos():
+def avl_photos(hash):
     t = AVL()
-    
-    #leer las imagenes desde la carpeta
 
+    #leer las imagenes desde la carpeta
     imagenes_path = "C:/Users/Julian/Documents/Estructuras_proyect/PhotoClass/editor/templates/static/imagenes/fotos_book"
     files_names = os.listdir(imagenes_path)
 
     photo_number = 0
     for i in files_names:
         photo_number +=1
-        photo = Photo("fotos_book/" + i, photo_number)
+        # en caso de que halla una actualizaciíon
+        other_confis = hash_search(i,hash)
+        if other_confis:
+            photo = Photo("fotos_book/" + i, photo_number, other_confis[0],other_confis[2],other_confis[1])
+        else:
+            photo = Photo("fotos_book/" + i, photo_number)
+        t.insert(photo) 
+    return t
+
+def avl_eliminados():
+    t = AVL()
+    #leer las imagenes desde la carpeta
+    imagenes_path = "C:/Users/Julian/Documents/Estructuras_proyect/PhotoClass/editor/templates/static/imagenes/eliminados"
+    files_names = os.listdir(imagenes_path)
+
+    photo_number = 0
+    for i in files_names:
+        photo_number +=1
+        photo = Photo(i, photo_number)
         t.insert(photo) 
     return t
     
@@ -217,5 +235,7 @@ def Avl_to_list(object_avl):
     return lista
 
 def avl_search(indice, object_avl):
+    print(f"indice: {indice}")
     search_photo = object_avl.search(indice)
+    print(f"Photo: {search_photo}")
     return search_photo

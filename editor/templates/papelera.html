@@ -39,11 +39,12 @@
                 </figure>
             </div>
             <section class="mis_fotos">
-                <a href="">
-                    <img src="" alt="">
+                {% for n in imagen %}
+                <a href="/papelera/{{n.indice}}">
+                    <img src="{% static 'imagenes/eliminados/'%}{{n.data}}" alt="">
                     <p></p>
                 </a>
-            
+                {% endfor %}
             </section> 
         </main>
     </header>
