@@ -119,6 +119,7 @@ body {
     width: 15.4vw;
     height: 91.5vh;
     top: 8.3vh;
+    border-right:0.2rem solid white; 
 }
 
 .texto_menu {
@@ -173,19 +174,6 @@ body {
     padding: 1rem 3rem;
 }
 
-
-
-.contenedor_menu::after {
-    content: "";
-    position: fixed;
-    top: 5rem;
-    bottom: 0;
-    left: 20rem; /* Ajusta este valor para controlar la posición de la barra */
-    width: 0.2rem;
-    background-color: white; /* Color de la barra separadora */
-}
-
-
 .titulo_main{
     position: absolute;
     /* background-color: purple; */
@@ -209,11 +197,12 @@ body {
 }
 
 .mis_fotos {
+    display: flex;
     position: relative;
     flex-wrap: wrap;
     /* background-color: red; */
-    width: 100rem;
-    height: 90rem;
+    width: 60vw;
+    min-height: 90rem;
     border: 0.2rem solid white;
     margin-left: 25rem;
     margin-right: 2rem;
@@ -224,7 +213,7 @@ body {
     display: flex;
     flex-flow: column;
     width: 17rem;
-    height: 15rem;
+    height: 17rem;
     background-color: white;
     margin: 2rem;
     transition: transform 0.3s ease-in-out;
@@ -248,7 +237,7 @@ body {
 .mis_fotos img{
     text-align: center;
     width: 17rem;
-    height: 12rem;
+    height: 13rem;
     background-color: palegreen;
     border-top-left-radius: 10px;
     border-top-right-radius: 10px;
@@ -284,8 +273,9 @@ body {
         bottom: 4rem;
     }
 
-    .contenedor_menu::after {
+    /* .contenedor_menu::after {
         top: 9rem;
-    }
+        
+    } */
 
 }

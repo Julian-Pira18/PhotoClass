@@ -14,7 +14,7 @@
     <header class="header">
       <div class="contenedor_logo">
           <figure>
-              <img class="logo" src="./imagenes/logo_blanco.png"          alt="">
+              <img class="logo" src="{% static './imagenes/logo_blanco.png' %}" alt="">
           </figure>
           <p class="titulo">PhotoClassify</p>
       </div>
@@ -30,7 +30,7 @@
       <div class="contenedor_menu">
         <p class="texto_menu">PhotoClassify</p>
         <div class="botones">
-          <a class="boton_volver">
+          <a href="http://127.0.0.1:8000/photos/" class="boton_volver">
               <span class="volver">Volver</span>
           </a>
           <a class="boton_eliminar"> 

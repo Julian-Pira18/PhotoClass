@@ -4,14 +4,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/eliminados.css' %}">
+    <link rel="stylesheet" href="{% static '/eliminados2.css' %}">
     <title>Eliminar</title>
 </head>
 <body>
     <header class="header">
         <div class="contenedor_logo">
             <figure>
-                <img class="logo" src="./imagenes/logo_verde.png" alt="">
+                <img class="logo" src="{% static './imagenes/logo_verde.png' %}" alt="">
             </figure>
             <p class="titulo">PhotoClassify</p>
         </div>
@@ -28,14 +28,14 @@
                     <button class="boton_vaciar">
                         <span class="vaciar">Vaciar</span>
                     </button>
-                    <button class="boton_volver">
+                    <a href="http://127.0.0.1:8000/" class="boton_volver">
                         <span class="volver">Volver</span>
-                    </button>
+                    </a>
             </div>
             <div class="titulo_main">
                 <p>Eliminar</p>
                 <figure>
-                    <img class="logo_main" src="./imagenes/tripode_blanco.png" alt="">
+                    <img class="logo_main" src="{% static './imagenes/tripode_blanco.png' %}" alt="">
                 </figure>
             </div>
             <section class="mis_fotos">

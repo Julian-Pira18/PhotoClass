@@ -5,14 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <link rel="stylesheet" href="style_mis_fotos.css" > -->
-    <link rel="stylesheet" href="{% static '/mis_fotos1.css' %}" >
+    <link rel="stylesheet" href="{% static '/mis_fotos2.css' %}" >
     <title>Mis fotos</title>
 </head>
 <body>
     <header class="header">
         <div class="contenedor_logo">
             <figure>
-                <img class="logo" src="./imagenes/logo_blanco.png" alt="">
+                <img class="logo" src="{% static './imagenes/logo_blanco.png' %}" alt="">
             </figure>
             <p class="titulo">PhotoClassify</p>
         </div>
@@ -23,17 +23,18 @@
                 <a href=""><li>| Contacto</li></a>
             </ul>
         </div>
-    <main class="main">
+    </header>
+        <main class="main">
         <div class="contenedor_menu">
                 <p class="texto_menu">PhotoClassify</p>
-                <button class="boton_volver">
+                <a href="http://127.0.0.1:8000/" class="boton_volver">
                     <span class="volver">Volver</span>
-                </button>
+                </a>
         </div>
         <div class="titulo_main">
             <p>Mis Fotos</p>
             <figure>
-                <img class="logo_main" src="./imagenes/tripode_blanco.png" alt="">
+                <img class="logo_main" src="{% static './imagenes/tripode_blanco.png' %}" alt="">
             </figure>
         </div>
         <section class="mis_fotos">
@@ -45,6 +46,6 @@
             {% endfor %}
         </section>  
     </main>
-    </header>
+    
 </body>
 </html>

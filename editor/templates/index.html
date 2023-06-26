@@ -3,72 +3,57 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/index.css' %}">
-    <title>PhotoClassify</title>
+    <link rel="stylesheet" href="{% static '/index1.css' %}">
+    <title>Prueba 2</title>
 </head>
-
 <body>
     <header class="header">
-        <div>
+        <div class="contenedor_logo">
             <figure>
-              <a href="/">
-                <img class="logo" src="{% static '/imagenes/logo_verde.png' %}" alt="">
-              </a>
+                <img class="logo" src="{% static './imagenes/logo_blanco.png' %}" alt="">
             </figure>
-            <a href="/">
-              <p class="titulo">PhotoClassify</p>
-            </a>  
-          </div>
+            <p class="titulo">PhotoClassify</p>
+        </div>
         <div class="navegador">
             <ul>
-              <a href="/">
                 <li>| Inicio</li>
-              </a>
-              <a href="/signin">
-                <li>| Sign in</li>
-              </a>
-              <a href="/signup">
-                <li>| Sign up</li>
-              </a>
+                <li>| Acerca de</li>
+                <li>| Contacto</li>
             </ul>
         </div>
-      </header>
-      <main class="main">
+    </header>
+    <main class="main">
         <div class="titulo_main">
             <p>PhotoClassify</p>
         </div>
         <figure>
-          <img class="tripode_img" src="{% static '/imagenes/tripode_blanco.png' %}" alt="">
-        </figure>
+            <img class="tripode_img" src="{% static './imagenes/tripode_blanco.png' %}" alt="">
+        </figure> 
         <figure>
-          <img class="estudio_img" src="{% static '/imagenes/estudio_blanco.png' %}" alt="">
+            <img class="estudio_img" src="{% static './imagenes/estudio_blanco.png' %}" alt="">
         </figure>
         <section class="botones">
-                  <button onclick="location.href='/photos'"  class="boton_mis_fotos">
-                      <span class="mis_fotos">Mis fotos</span>
-                  </button>
-
-                  <button onclick="location.href='/clasificar'" class="boton_clasificar">
-                      <span class="clasificar">Clasificar</span>
-                  </button>
-
-                  <button onclick="location.href='/buscar'" class="boton_buscar">
-                      <span class="buscar">Buscar</span>
-                  </button>
-
-                  <button onclick="location.href='/papelera'" class="boton_papelera">
-                      <span class="papelera">Papelera</span>
-                  </button>
-      </section>
-      </main>
-      <footer class="footer">
-        <div class="div__acercade">
+            <a  href="photos"class="boton_mis_fotos">
+                <span class="mis_fotos">Mis fotos</span>
+            </a>
+            <a  href="clasificar/" class="boton_clasificar">
+                <span class="clasificar">Clasificar</span>
+            </a>
+            <a class="boton_buscar">
+                <span class="buscar">Buscar</span>
+            </a>
+            <a  href="papelera/" class="boton_papelera">
+                <span class="papelera">Papelera</span>
+            </a>
+        </section>
+        </main>
+    <footer class="footer">
+        <div class="acerca_de">
             <p class="texto_acercade">Para un fotógrafo, es tedioso e ineficaz no poder llevar un registro de 
                 los componentes que fueron usados en sus capturas. Esto nos lleva al principal objetivo de la 
                 aplicación. Lo que queremos lograr es poder organizar adecuadamente tu material fotográfico.
-            </p>
+            </p> 
         </div>
         <nav class="correos">
             <ul>
@@ -76,79 +61,28 @@
                 <li>jurodriguezag@unal.edu.co</li>
                 <li>cagarciach@unal.edu.co</li>
                 <li>jpira@unal.edu.co</li>
-            </nav>
+            </ul>
+        </nav>
         <div class="informacion">
             <figure>
-                <a href="https://unal.edu.co/" target="_blank" >
-                    <img class="logo_un" src="{% static '/imagenes/logo_unal_verde.png' %}" alt="">
+                <a href="https://bogota.unal.edu.co/" target="_blank" >
+                    <img class="logo_un" src="{% static './imagenes/logo_unal_verde_1.png' %}" alt="">
                 </a>
-                <div class="barra_separadora_un"></div>
             </figure>
             <figure>
                 <a  href="https://linktr.ee/grupo_3 " target="_blank">
-                    <img class="logo_linkIn" src="{% static '/imagenes/LinkedIn_logo_verde.png' %}" alt="">
+                    <img class="logo_linkIn" src="{% static './imagenes/LinkedIn_logo_verde_1.png' %}" alt="">
                 </a>
             </figure>
             <figure>
-                <a href="https://github.com/Julian-Pira18/PhotoClass" target="_blank">
-                    <img class="logo_github" src="{% static '/imagenes/logo_github_verde.png' %}" alt="">
+                <a href="https://github.com/Julian-Pira18/PhotoClass" target="_blank"">
+                    <img class="logo_github" src="{% static './imagenes/logo_github_verde_1.png' %}" alt="">
                 </a>
-            </div>
             <div class="privacidad">
                 <p class="privacidad__texto">©2023 PRIVACY POLICY</p>
             </div>
-        </section>
+            </figure>
+        </div>
     </footer>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<!-- <!DOCTYPE html>
-<html>
-<head>
-  <title>PhotoClassify</title>
-  <link rel="stylesheet" type="text/css" href="{%static 'css/styles.css'%}">
-</head>
-<body>
-    <header >
-        <h1>PhotoClassify</h1>
-        <img src='{%static "imagenes/logo-verde-removebg-preview.png"%}' alt="Logo de la aplicación">      
-    </header>
-  
-  <main class="content">
-    <div class="box box1">
-      <a href="http://127.0.0.1:8000/photos/"><h3>Mis fotos</h3></a>
-    </div>
-    <div class="box box2">
-      <h3>Clasificar</h3>
-    </div>
-    <div class="box box3">
-      <h3>Buscar</h3>
-    </div>
-    <div class="box box4">
-      <h3>Papelera</h3>
-    </div>
-    <img src='{%static "imagenes/reflector.png"%}''>  
-  </main>
-  
-  <footer>
-    <button id="salir">Salir</button>
-  </footer>
-</body>
-</html> -->
