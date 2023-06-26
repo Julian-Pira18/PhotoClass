@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="{% static '/eliminados2.css' %}">
+    <link rel="stylesheet" href="{% static '/eliminados3.css' %}">
     <title>Eliminar</title>
 </head>
 <body>
@@ -12,6 +12,7 @@
         <div class="contenedor_logo">
             <figure>
                 <img class="logo" src="{% static './imagenes/logo_verde.png' %}" alt="">
+                <!-- <img class="logo" src="./imagenes/logo_blanco.png" alt=""> -->
             </figure>
             <p class="titulo">PhotoClassify</p>
         </div>
@@ -22,15 +23,18 @@
                 <a href=""><li>| Contacto</li></a>
             </ul>
         </div>
+    </header>
         <main class="main">
             <div class="contenedor_menu">
                     <p class="texto_menu">PhotoClassify</p>
-                    <button class="boton_vaciar">
-                        <span class="vaciar">Vaciar</span>
-                    </button>
-                    <a href="http://127.0.0.1:8000/" class="boton_volver">
-                        <span class="volver">Volver</span>
-                    </a>
+                    <div class="botones">
+                        <a href="http://127.0.0.1:8000/" class="boton_volver">
+                            <span class="volver">Volver</span>
+                        </a>
+                        <a class="boton_vaciar"> 
+                            <span class="vaciar">Vaciar</span>
+                        </a>
+                    </div>
             </div>
             <div class="titulo_main">
                 <p>Eliminar</p>
@@ -47,6 +51,5 @@
                 {% endfor %}
             </section> 
         </main>
-    </header>
 </body>
 </html>
